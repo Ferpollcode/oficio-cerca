@@ -1,0 +1,24 @@
+{
+  "name": "OficioCerca Mendoza",
+  "short_name": "OficioCerca",
+  "description": "Oficios verificados con tracking en vivo y permiso del trabajador.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121f3d",
+  "theme_color": "#121f3d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

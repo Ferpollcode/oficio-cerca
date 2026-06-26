@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OficioCerca
 
-## Getting Started
+App Next.js recomendada para un marketplace de oficios en Mendoza, mejorado con:
 
-First, run the development server:
+- Web app para cliente.
+- Panel para trabajador.
+- Login y roles preparado para Supabase.
+- Base de datos inicial documentada en el panel admin.
+- Solicitudes de servicio.
+- Permiso de ubicacion antes de compartir tracking.
+- Seguimiento en vivo con Google Maps si se configura API key.
+- Historial de pedidos.
+- Administracion.
+- PWA instalable en Android e iOS.
+
+## Ejecutar
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configurar servicios reales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copiar `.env.example` a `.env.local` y completar:
 
-## Learn More
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+Sin esas variables la app funciona en modo demo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Supabase
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+En la pantalla `admin` hay un bloque SQL inicial para crear:
 
-## Deploy on Vercel
+- `profiles`
+- `workers`
+- `service_requests`
+- `worker_locations`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para produccion faltaria agregar RLS policies, auth por telefono/email y funciones realtime.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Android e iOS
+
+La app ya incluye `manifest.json` y `sw.js`, por lo que puede instalarse como PWA desde el navegador.
+
+Para GPS en segundo plano real y notificaciones nativas conviene agregar Capacitor o crear una app Expo/React Native consumiendo el mismo backend de Supabase.
