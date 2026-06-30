@@ -13,6 +13,7 @@
   --blue: #0791e6;
   --surface: #6b6056;
   --surface-2: #4c443d;
+  --bone: #f7f4ef;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
 }
 
@@ -64,9 +65,11 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 14px clamp(18px, 5vw, 72px);
-  background: rgba(90, 80, 71, 0.94);
-  border-bottom: 1px solid rgba(107, 95, 83, 0.9);
+  min-height: 158px;
+  padding: 18px clamp(18px, 5vw, 72px);
+  color: #302a25;
+  background: rgba(247, 244, 239, 0.96);
+  border-bottom: 1px solid rgba(107, 95, 83, 0.28);
   backdrop-filter: blur(18px);
 }
 
@@ -77,13 +80,23 @@ button {
   font-weight: 850;
 }
 
+.topbar .brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .brand-logo {
   display: block;
   width: clamp(150px, 18vw, 230px);
   height: auto;
   max-height: 58px;
   object-fit: contain;
-  border-radius: 6px;
+}
+
+.topbar .brand-logo {
+  width: clamp(340px, 36vw, 540px);
+  max-height: 138px;
 }
 
 .auth-logo {
@@ -108,6 +121,15 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.nav-tabs {
+  margin-left: auto;
+}
+
+.topbar .nav-tabs a {
+  color: #302a25;
+  font-weight: 850;
 }
 
 .nav-tabs button,
@@ -150,7 +172,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink);
+  color: #302a25;
 }
 
 .button {
@@ -495,12 +517,34 @@ textarea {
 }
 
 .registration-header {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 18px;
+  min-height: 158px;
   padding: 18px clamp(18px, 5vw, 72px);
-  border-bottom: 1px solid var(--line);
+  color: #302a25;
+  background: var(--bone);
+  border-bottom: 1px solid rgba(107, 95, 83, 0.28);
+}
+
+.registration-header .brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.registration-header .brand-logo {
+  width: clamp(320px, 34vw, 500px);
+  max-height: 128px;
+}
+
+.registration-header .button,
+.auth-header .button {
+  color: #302a25;
+  background: rgba(90, 80, 71, 0.08);
+  border-color: rgba(90, 80, 71, 0.22);
 }
 
 .registration-layout {
@@ -561,7 +605,7 @@ textarea {
 
 .auth-page {
   display: grid;
-  min-height: 100vh;
+  min-height: calc(100vh - 158px);
   place-items: center;
   padding: 24px;
   background:
@@ -585,6 +629,31 @@ textarea {
   gap: 10px;
   margin-bottom: 28px;
   font-weight: 900;
+}
+
+.auth-header {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  min-height: 158px;
+  padding: 18px clamp(18px, 5vw, 72px);
+  color: #302a25;
+  background: var(--bone);
+  border-bottom: 1px solid rgba(107, 95, 83, 0.28);
+}
+
+.auth-header .brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.auth-header .brand-logo {
+  width: clamp(320px, 34vw, 500px);
+  max-height: 128px;
 }
 
 .auth-head h1 {
@@ -941,11 +1010,31 @@ textarea {
 }
 
 @media (max-width: 700px) {
-  .topbar {
-    padding: 12px 16px;
+  .topbar,
+  .registration-header,
+  .auth-header {
+    flex-direction: column;
+    justify-content: center;
+    min-height: 178px;
+    padding: 14px 16px;
+  }
+
+  .topbar .brand,
+  .registration-header .brand,
+  .auth-header .brand {
+    position: static;
+    transform: none;
+  }
+
+  .topbar .brand-logo,
+  .registration-header .brand-logo,
+  .auth-header .brand-logo {
+    width: min(340px, 88vw);
+    max-height: 108px;
   }
 
   .role-tabs {
+    justify-content: center;
     max-width: 100%;
     overflow-x: auto;
     padding-bottom: 2px;

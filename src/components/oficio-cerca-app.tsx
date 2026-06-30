@@ -207,7 +207,7 @@ export function OficioCercaApp() {
     <div className="app-shell">
       <header className="topbar">
         <a className="brand" href="#inicio" aria-label="OficioCerca inicio">
-          <Image className="brand-logo" src="/oficioya-logo.png" alt="OficioYa" width={230} height={139} priority />
+          <Image className="brand-logo" src="/oficios-ya-logo-transparent.png" alt="Oficios Ya" width={1408} height={768} priority />
         </a>
         <nav className="nav-tabs" aria-label="Secciones">
           <a href="#buscar">Buscar</a>

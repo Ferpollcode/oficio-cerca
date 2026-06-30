@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ClientRegistrationForm } from "@/components/client-registration-form";
 import { WorkerRegistrationForm } from "@/components/worker-registration-form";
 
 export default function RegistroPage() {
@@ -7,7 +8,7 @@ export default function RegistroPage() {
     <main className="registration-page">
       <header className="registration-header">
         <Link className="brand" href="/">
-          <Image className="brand-logo" src="/oficioya-logo.png" alt="OficioYa" width={230} height={139} priority />
+          <Image className="brand-logo" src="/oficios-ya-logo-transparent.png" alt="Oficios Ya" width={1408} height={768} priority />
         </Link>
         <Link className="button" href="/">Volver</Link>
       </header>
@@ -31,25 +32,7 @@ export default function RegistroPage() {
               Guarda tus datos para pedir servicios, ver profesionales cercanos y consultar
               el seguimiento cuando el trabajador acepte compartir ubicacion.
             </p>
-            <form className="client-register-form">
-              <label>
-                Nombre y apellido
-                <input placeholder="Ej: Laura Fernandez" required />
-              </label>
-              <label>
-                Email
-                <input placeholder="nombre@email.com" required type="email" />
-              </label>
-              <label>
-                Telefono
-                <input placeholder="Ej: +54 9 261 555 1234" required type="tel" />
-              </label>
-              <label>
-                Domicilio principal
-                <input placeholder="Ej: Av. San Martin 1120, Ciudad" required />
-              </label>
-              <button className="button primary" type="submit">Crear cuenta cliente</button>
-            </form>
+            <ClientRegistrationForm />
           </div>
 
           <div className="panel registration-panel">
